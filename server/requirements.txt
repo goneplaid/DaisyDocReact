@@ -3,3 +3,4 @@ flask
 pyperclip
 selenium
 requests
+flask-cors
