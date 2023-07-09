@@ -37,7 +37,7 @@ const DaisyDocReact: React.FC<DaisyDocReactProps> = ({
   const gapClassName = gapSizes[size];
 
   return (
-    <div className={`inline-flex items-center ${gapClassName} ${className}`}>
+    <span className={`inline-flex items-center ${gapClassName} ${className}`}>
       {!hideLogos && (
         <img
           src="daisyui-logo.png"
@@ -57,7 +57,7 @@ const DaisyDocReact: React.FC<DaisyDocReactProps> = ({
           className={imageSizeClassName}
         />
       )}
-    </div>
+    </span>
   );
 };
 
