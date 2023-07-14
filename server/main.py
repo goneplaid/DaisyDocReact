@@ -1,6 +1,8 @@
+"""Main application and routing logic for server."""
+
 from flask import Flask, send_from_directory
 from flask_cors import CORS
-from routes.system import system_routes
+from api.system import system_routes
 from data.models import db
 from data.setup import setup_db
 import os
@@ -14,6 +16,8 @@ setup_db(app, db)
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve(path):
+    """Serves the React app which consumes the API."""
+
     if path != "" and os.path.exists(app.static_folder + '/' + path):
         return send_from_directory(app.static_folder, path)
     else:
@@ -21,3 +25,4 @@ def serve(path):
 
 if __name__ == '__main__':
     app.run(use_reloader=True, port=5000, threaded=True)
+

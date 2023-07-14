@@ -1,3 +1,5 @@
+"""Sets up the database with the application."""
+
 def setup_db(app, db):
   app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
   db.init_app(app)
