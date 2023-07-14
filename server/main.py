@@ -2,13 +2,16 @@
 
 from flask import Flask, send_from_directory
 from flask_cors import CORS
-from api.system import system_routes
-from data.models import db
-from data.setup import setup_db
+from api import system_route, discover_route
+from data import db, setup_db
 import os
 
-app = Flask(__name__, static_folder='../ui/build')
-app.register_blueprint(system_routes)
+ui_dir = '../ui/build'
+
+app = Flask(__name__, static_folder=ui_dir)
+app.register_blueprint(system_route)
+app.register_blueprint(discover_route)
+
 CORS(app)
 
 setup_db(app, db)

@@ -3,9 +3,9 @@
 from flask import Blueprint, request, jsonify
 from data.models import System
 
-system_routes = Blueprint('system_routes', __name__)
+system_route = Blueprint('system_route', __name__)
 
-@system_routes.route('/api/system', methods=['GET', 'PUT'])
+@system_route.route('/api/system', methods=['GET', 'PUT'])
 def system():
     settings = System.get_system_info()
     daisy_docs_url = settings.daisy_docs_url
